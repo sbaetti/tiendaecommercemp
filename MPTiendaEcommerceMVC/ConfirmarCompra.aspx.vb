@@ -51,7 +51,7 @@ Public Class ConfirmarCompra
         oPreference.Items.Add(New Item With
                                  {.Id = "1234",
                                   .Title = "Samsung Galaxy A10 32 GB Negro 2 GB RAM",
-                                  .Description = "Dispositivo móvil de Tienda e-commerce",
+                                  .Description = “Dispositivo móvil de Tienda e-commerce”,
                                   .Quantity = 1,
                                   .CurrencyId = Common.CurrencyId.ARS,
                                   .UnitPrice = CDec(10000),
@@ -59,8 +59,8 @@ Public Class ConfirmarCompra
                                  }
                              )
 
-        'oPreference.NotificationUrl = "https://b4d860fba207.ngrok.io/api/Webhook/Payment"
-        oPreference.NotificationUrl = "http://tiendaecommerce.gearhostpreview.com/api/Webhook/Payment"
+        oPreference.NotificationUrl = "https://46d334dcf90b.ngrok.io/api/Webhook/Payment"
+        'oPreference.NotificationUrl = "http://tiendaecommerce.gearhostpreview.com/api/Webhook/Payment"
         'oPreference.NotificationUrl = HttpContext.Current.Request.Url.Scheme & "://" & HttpContext.Current.Request.Url.Authority & "/notificacion.aspx"
         oPreference.ExternalReference = "sebastianbaetti@gmail.com"
         oPreference.Payer = comprador
@@ -69,7 +69,7 @@ Public Class ConfirmarCompra
         Dim pago As Payment = New Payment()
         pago.ExternalReference = "sebastianbaetti@gmail.com"
         pago.Installments = 6
-        pago.Description = "Dispositivo móvil de Tienda e-commerce"
+        pago.Description = “Pago prueba integracion”
 
 
 
@@ -81,9 +81,10 @@ Public Class ConfirmarCompra
         excludepaymenttype.Add(New PaymentType() With {.Id = "atm"})
         paymentmethod.ExcludedPaymentTypes = excludepaymenttype
         paymentmethod.Installments = 6
-        oPreference.BackUrls = New BackUrls() With {.Success = "http://tiendaecommerce.gearhostpreview.com/PagoAprobado.aspx", .Failure = "http://tiendaecommerce.gearhostpreview.com/PagoRechazado.aspx", .Pending = "http://tiendaecommerce.gearhostpreview.com/PagoPendiente.aspx"}
+        oPreference.BackUrls = New BackUrls() With {.Success = "https://46d334dcf90b.ngrok.io/PagoAprobado.aspx", .Failure = "https://46d334dcf90b.ngrok.io/PagoRechazado.aspx", .Pending = "https://46d334dcf90b.ngrok.io/PagoPendiente.aspx"}
         oPreference.AutoReturn = AutoReturnType.approved
         oPreference.PaymentMethods = paymentmethod
+
 
         oPreference.Save()
 

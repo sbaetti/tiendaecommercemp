@@ -85,5 +85,5 @@
                 </div>
              </div>
         </div>
-        <script src="https://www.mercadopago.com/v2/security.js" ></script>
+        <script src="https://www.mercadopago.com/v2/security.js" view="" ></script>
 </asp:Content>
